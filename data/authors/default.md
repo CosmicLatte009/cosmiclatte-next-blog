@@ -1,5 +1,5 @@
 ---
-name: ComicLatte
+name: CosmicLatte
 avatar: /static/images/bear.jpg
 occupation: Front-End
 # company: Stanford University
