@@ -1,9 +1,9 @@
 ---
 title: '[CS] SPA, MPA와 렌더링 방식들'
 date: '2023-03-12'
-tags: ['CS', '렌더링 방식', 'SPA', 'MPA', 'CSR', 'SSR', 'SSG', 'ISR']
+tags: ['CS', '렌더링 방식', 'SPA', 'MPA', 'CSR', 'SSR', 'SSG', 'ISR', 'SEO']
 draft: false
-summary: 'SPA, MPA, CSR, pre-rendering, Next, SSR, SSG, ISR, TTV, TTI'
+summary: 'SPA, MPA, CSR, pre-rendering, Next, SSR, SSG, ISR, TTV, TTI, SEO'
 ---
 
 # SPA와 MPA
@@ -22,7 +22,7 @@ JavaScript 파일이 여러개다.
 
   title, meta가 검색엔진에 걸려야하는데  
    SPA는 JavaScript로 데이터를 보여주기 때문에 검색엔진에 잘 안 잡힌다.  
-   useHelment() 등의 훅을 쓰면 단점 보완이 가능하지만 완전하지 않다.  
+   `useHelment()` 등의 훅을 쓰면 단점 보완이 가능하지만 완전하지 않다.  
    Next가 이 단점을 보완하기 위해 나온 프레임워크다.
 
 ## MPA
@@ -43,7 +43,7 @@ JavaScript 파일이 여러개다.
 브라우저가 서버에 HTML과 JavaScript 파일을 요청한 후 로드되면  
 **사용자의 상호작용에 따라 클라이언트 단에서 JavaScript를 이용해서 동적으로 렌더링시키는 방식이다.**
 
-React와 같은 많은 Single Page Application (SPA) 이 이 Client Side Rendering (CSR) 방식을 채택한다.  
+React와 같은 많은 Single Page Application(SPA) 이 Client Side Rendering(CSR) 방식을 채택한다.  
 하지만 모든 SPA가 CSR 방식을 채택하는 것은 아니다.
 
 ### CSR의 장점
@@ -81,8 +81,6 @@ CSR적인 부분을 Pre-Rendering 방식으로 바꿔 적용하기 위해 개발
 - 초기 렌더링, 즉 초기 뷰가 빠르다.
 - SEO 검색엔진 최적화가 효율적이다.  
    JavaScript를 이용한 렌더링이 아니기 때문에 검색엔진 최적화가 쉽다.
-
-### Pre-Rendering의 단점
 
 ---
 
@@ -156,9 +154,22 @@ SSG는 빌드시에 HTML을 생성하지만, ISR은 특정 시간(초)마다 정
 
 **TTI** 는 인터랙션 사용자와의 통신이 가능해지는 시점.
 
-### CSR과 SSR(혹은 SSG)에서의 TTV, TTI 차이
+### CSR과 Pre-Rendering에서의 TTV, TTI 차이
 
 CSR은 사용자에게 보여짐과 동시에 (TTV) 모든 HTML과 JavaScript를 불러온 상태이기 때문에, 모든 동적인 행동도 할 수 있게 된다. (TTI)
 
-하지만, SSR이나 SSG는 HTML과 일부 JavaScript 파일을 서버로부터 사전에 받아 놓기 때문에  
+하지만, Pre-Rendering은 HTML과 일부 JavaScript 파일을 서버로부터 사전에 받아 놓기 때문에  
 TTV 상태에서도 TTI가 전부 활성화되어 있지는 않다.
+
+---
+
+# SEO란?
+
+## SEO
+
+#### Search Engine Optimization
+
+SEO는 검색 엔진으로부터 웹사이트나 웹페이지에 대한 웹사이트 트랙픽 품질과 양을 개선하는 과정이다.  
+즉, 검색 엔진의 검색 결과 페이지 상단에 노출시키는 검색 엔진 최적화 작업이다.
+
+Pre-Rendering처럼 사전에 HTML 문서를 검색 엔진이 찾을 수 있도록 제공하면 SEO를 향상 시킬 수 있다.
