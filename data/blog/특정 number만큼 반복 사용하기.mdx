@@ -1,0 +1,32 @@
+---
+title: '특정 number만큼 반복 사용하기'
+date: '2023-03-13 03:53:21'
+tags: ['JS 트러블슈팅', '반복문']
+draft: false
+summary: 'new Array(숫자).fill(0) 사용하여 특정 숫자를 배열로 바꾼 후 해당 배열을 반복문 돌린다.'
+---
+
+### 문제
+
+프로젝트에서 resultData 데이터의 jealousyGuage 프로퍼티의 값이 특정 숫자(number)인데,  
+해당 프로퍼티 값만큼 반복문을 돌려서 컴포넌트를 렌더링하고 싶다.
+
+### 해결 방법
+
+`new Array(숫자).fill(0)` 사용하여 특정 숫자를 배열로 바꾼 후 해당 배열을 반복문 돌린다.
+
+```JavaScript
+const N = 5;   // 길이 N을 5라고 가정
+let arr = new Array(N).fill(0);
+let arr2 = new Array(N).fill(0);
+
+//프로젝트에서 쓰인 코드
+const jealousyHearts = resultData.jealousyGuage;
+let jealousyHeartArr = new Array(jealousyHearts).fill(0);
+
+    return (
+        <div className={styles["guage-box"]}>
+            <GuageHeart arr={jealousyHeartArr}>질투력</GuageHeart>
+        </div>
+    )
+```

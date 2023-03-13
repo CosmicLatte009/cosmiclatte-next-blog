@@ -1,0 +1,41 @@
+---
+title: '모바일에서 hover 적용 안될 때'
+date: '2023-03-13 03:30:12'
+tags: ['CSS 트러블슈팅', 'hover']
+draft: false
+summary: '기기를 구분하여 hover 기능이 있는 기기에만 효과 적용 혹은 hover 대신 active에 ripple 효과 적용'
+---
+
+### 문제
+
+마우스를 사용하지 않는 모바일 등의 기기는 hover 의사 클래스를 다른 방식으로 처리해주어야 한다.
+
+### 해결 방법 1
+
+미디어 쿼리로 hover가 있는 기기와 없는 기기를 구분해서 hover 기능 있는 쪽에만 hover 효과를 적용해준다.
+단, hover가 없는 기기에는 아예 효과가 제거되므로 주의한다.
+
+```css
+@media (hover: hover) and (poitner: fine) {
+  요소:hover {
+    속성: 속성값;
+  }
+}
+```
+
+### 해결 방법 2
+
+hover 대신 active에 ripple 효과 애니메이션 준다.
+
+```css
+요소 {
+  background-position: center;
+  transition: background 0.5s;
+}
+
+요소:active {
+  background-color: map-get($colors, back);
+  background-size: 100%;
+  transition: background 0s;
+}
+```

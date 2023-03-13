@@ -1,0 +1,35 @@
+---
+title: 'Netlify 배포 Build Command 에러 날 때'
+date: '2023-03-13 14:21:10'
+tags: ['Netlify', '배포', 'build command']
+draft: false
+summary: 'netlify 사이트에서 netlify.toml과 동일하게 Build Command 설정'
+---
+
+### 문제
+
+Build를 해야 배포가 가능한 파일로 만들 수 있는데, 이를 구현하기 위한 코드(Build Command)를 어떻게 할 것인지 작성해줘야 한다.
+
+### 해결 방법
+
+1. netlify 사이트에서 Build Command 설정
+
+   [site settings]-[Build & deploy]-[Build settings]의 [Build command]에  
+   `Cl=false npm run build` 입력.
+
+   [Build command]과 [Publish directory]는 내 애플리케이션의 netlify.toml 파일 내용과 동일해야한다.
+
+2. netlify.toml 파일 설정
+
+   내 애플리케이션의 public 폴더에 toml 파일을 위치시킨다.  
+   netlify.toml 파일 내용은 다음과 같다.
+
+   ```toml
+   [build]
+   publish = "build"
+   command = "Ci=false npm run build"
+   ```
+
+   - #### npm run build란?
+     package.json의 scripts에 있는 명령어를 가져온 것이다.  
+     다르게 설정한 경우, netlify에도 다르게 설정한 것을 알려주는 과정이 필요하다.

@@ -1,0 +1,21 @@
+---
+title: '페이지 이동 시 스크롤 맨 위로 오게 하기'
+date: '2023-03-13 03:53:21'
+tags: ['React 트러블슈팅', '스크롤']
+draft: false
+summary: 'useEffect 훅 내에서 window.scrollTo(0,0)을 작성해준다.'
+---
+
+### 문제
+
+페이지를 이동할 때마다 스크롤이 맨 위로 오게끔 하고 싶다.
+
+### 해결 방법
+
+useEffect 훅 내에서 `window.scrollTo(0,0)`을 작성해준다.
+
+```JavaScript
+useEffect(() => {
+	window.scrollTo(0, 0);
+}, []);
+```

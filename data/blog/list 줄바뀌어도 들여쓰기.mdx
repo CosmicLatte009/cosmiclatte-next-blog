@@ -1,0 +1,33 @@
+---
+title: 'list 줄바뀌어도 들여쓰기'
+date: '2023-03-13 02:40:17'
+tags: ['CSS 트러블슈팅', 'list']
+draft: false
+summary: 'text-indent 속성에 적절한 음수값 작성'
+---
+
+### 문제
+
+`<li>` 태그 내용이 길어져서 줄바꿈될 시 들여쓰기가 자동으로 되지 않는다.
+
+### 해결 방법
+
+`text-indent: -20px` 속성 추가  
+ 화면을 보면서 적절한 음수값을 적어준다.
+
+    ```css
+    li {
+    list-style: inside;
+    text-indent: -17.5px;
+    word-break: keep-all;
+    padding: 0 20px 6px 40px;
+    text-align: left;
+    line-height: 19.7px;
+    @include font-style(
+        $font-family,
+        map-get($font-size, small),
+        map-get($font-weight, small),
+        map-get($colors, text)
+    );
+    }
+    ```

@@ -1,0 +1,26 @@
+---
+title: 'SVG 색상 CSS에서 바꾸기'
+date: '2023-03-13 03:13:09'
+tags: ['CSS 트러블슈팅', 'SVG']
+draft: false
+summary: 'SVG 코드에서 style="fill:current" 로 설정하고 CSS에서 fill 색상을 변경'
+---
+
+### 문제
+
+SVG를 여러 곳에서 컴포넌트처럼 쓰는 경우 각각의 색상을 다르게 하고 싶다.  
+따라서 SVG 코드 내에서 색상을 변경하지 않고 CSS 파일에서 자유롭게 글씨 색상 변경하듯 바꾸고 싶다.
+
+### 해결 방법
+
+SVG 코드에서 `style="fill:current";` 로 설정하고 CSS에서 fill 색상을 변경한다.
+
+    ```css
+    .heart-icon {
+    	float: left;
+    	margin-right: 1px;
+    	width: 20px;
+    	height: 20px;
+    	fill: map-get($colors, secondary);
+    }
+    ```

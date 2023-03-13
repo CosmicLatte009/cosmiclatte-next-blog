@@ -1,0 +1,26 @@
+---
+title: '데이터 개행마다 list로 바꾸기'
+date: '2023-03-13 03:49:23'
+tags: ['JS 트러블슈팅', '개행(\n)']
+draft: false
+summary: 'split 사용하여 \n 개행 단위로 데이터 끊어서 list로 렌더링한다'
+---
+
+### 문제
+
+문자열로 이루어진 데이터를 불러와서 화면에 뿌려줄 때 개행마다 list에 담고싶다.
+
+### 해결 방법
+
+`split` 사용하여 `\n` 개행 단위로 데이터 끊어서 list로 렌더링한다.
+
+```JavaScript
+const arrJealousy = (resultData.jealousyDesc || '').split('\n')
+return (
+  <ul>
+    {arrJealousy.map((item) => (
+      <li key={item}>{item}</li>
+    ))}
+  </ul>
+)
+```

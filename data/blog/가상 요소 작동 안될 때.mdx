@@ -1,0 +1,31 @@
+---
+title: '가상 요소 작동 안될 때'
+date: '2023-03-13 02:13:37'
+tags: ['CSS 트러블슈팅', '가상 요소']
+draft: false
+summary: '가상 요소에 content="", display: block (혹은 inline-block) 속성 추가'
+---
+
+### 문제
+
+가상요소 넣는게 인라인 요소로 들어가서 크기조절이 안될 수 있다.
+
+### 해결 방법
+
+- `content: ""` 속성 추가
+- `display: inline-block` 혹은 `display: block` 속성 추가
+
+  ```css
+  & h3 {
+    @extend %fonts;
+    &:before {
+      content: '';
+      display: block;
+      margin: 8.1px auto 7.5px;
+      width: 21.83px;
+      height: 3px;
+      border-radius: 10px;
+      background-color: map-get($colors, main);
+    }
+  }
+  ```
